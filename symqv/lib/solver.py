@@ -3,6 +3,7 @@ import subprocess
 import tempfile
 import time
 from enum import Enum
+from sys import platform
 from typing import List, Union, Dict, Tuple, Set, Optional
 
 import numpy as np
@@ -20,7 +21,17 @@ from symqv.lib.utils.arithmetic import state_not_equals, matrix_vector_multiplic
 from symqv.lib.utils.helpers import build_qbit_constraints, to_complex_matrix, pi
 
 z3_path = '/usr/local/bin/z3'
-dreal_path = '/opt/dreal/4.21.06.2/bin/dreal'
+dreal_path = None
+
+if platform == "linux" or platform == "linux2":
+    dreal_path = '/opt/dreal/4.21.06.2/bin/dreal'
+elif platform == "darwin":
+    dreal_path = '/usr/local/Cellar/dreal/4.21.06.2/bin/dreal'
+elif platform == "win32":
+    raise Exception(f'Windows is not directly supported. '
+                    f'You need to obtain dReal4 as a Docker container and manually pass .smt2 files to it.')
+else:
+    raise Exception(f'{platform} not supported. ')
 
 
 class SpecificationType(Enum):
@@ -238,7 +249,7 @@ def run_decision_procedure(temp_file_name: str,
                            output_qbits,
                            delta: float = 0.0001,
                            dump_solver_output=False) -> Tuple[str, Union[collections.OrderedDict, None]]:
-    start_solver = time.time()
+    print('Starting solver...')
 
     sat_result = ''
     model_dict = collections.OrderedDict({})

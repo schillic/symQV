@@ -605,7 +605,7 @@ class Circuit:
         end_full = time.time()
         time_full = end_full - start_full
 
-        print(f'\nElapsed time {precision_format.format(time_full)} seconds.')
+        print(f'Elapsed time {precision_format.format(time_full)} seconds.')
         return sat_result, model, time_full
 
     def _prove_state_model(self,
