@@ -74,8 +74,13 @@ def prove_qpe(n: int):
 
 
 if __name__ == "__main__":
-    for i in [3]:
-        start = time.time()
-        prove_qpe(i)
+    for i in [3, 5]:
+        times = []
 
-        print(f'Runtime for {i}:', time.time() - start)
+        for _ in range(5):
+            start = time.time()
+            prove_qpe(i)
+            times.append(time.time() - start)
+
+        print(f'Runtime for {i}:', np.mean(times))
+

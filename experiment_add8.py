@@ -1,3 +1,6 @@
+import time
+
+import numpy as np
 from z3 import Sum, Int
 
 from symqv.lib.constants import to_int, to_bool
@@ -50,4 +53,11 @@ def prove_add8():
 
 
 if __name__ == "__main__":
-    prove_add8()
+    times = []
+
+    for _ in range(5):
+        start = time.time()
+        prove_add8()
+        times.append(time.time() - start)
+
+    print(f'Runtime:', np.mean(times))

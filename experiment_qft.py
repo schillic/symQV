@@ -106,8 +106,12 @@ def prove_qft(n: int):
 
 
 if __name__ == "__main__":
-    for i in [3]:
-        start = time.time()
-        prove_qft(i)
-        print(f'Runtime for {i}:',
-              time.time() - start)
+    for i in [3, 5, 10, 12]:
+        times = []
+
+        for _ in range(5):
+            start = time.time()
+            prove_qft(i)
+            times.append(time.time() - start)
+
+        print(f'Runtime for {i}:', np.mean(times))

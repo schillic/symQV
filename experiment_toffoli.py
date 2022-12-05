@@ -1,3 +1,6 @@
+import time
+
+import numpy as np
 from z3 import Implies
 
 from symqv.lib.expressions.qbit import Qbits
@@ -35,4 +38,11 @@ def prove_toffoli():
 
 
 if __name__ == "__main__":
-    prove_toffoli()
+    times = []
+
+    for _ in range(5):
+        start = time.time()
+        prove_toffoli()
+        times.append(time.time() - start)
+
+    print(f'Runtime:', np.mean(times))

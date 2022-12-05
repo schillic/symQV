@@ -1,3 +1,7 @@
+import time
+
+import numpy as np
+
 from symqv.lib.expressions.qbit import Qbits
 from symqv.lib.models.circuit import Circuit, Method
 from symqv.lib.operations.gates import CNOT, H, CZ, SWAP
@@ -37,4 +41,11 @@ def prove_quantum_teleportation():
 
 
 if __name__ == "__main__":
-    prove_quantum_teleportation()
+    times = []
+
+    for _ in range(5):
+        start = time.time()
+        prove_quantum_teleportation()
+        times.append(time.time() - start)
+
+    print(f'Runtime:', np.mean(times))
