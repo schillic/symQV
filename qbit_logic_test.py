@@ -1,6 +1,6 @@
-from quavl.lib.expressions.qbit import Qbits
-from quavl.lib.models import Circuit, Method
-from quavl.lib.operations import X, H, oracle
+from symqv.lib.expressions.qbit import Qbits
+from symqv.lib.models import Circuit, Method
+from symqv.lib.operations import X, H, oracle
 
 if __name__ == "__main__":
     # Initialize circuit

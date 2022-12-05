@@ -1,14 +1,13 @@
 import getopt
 import sys
 
-from quavl.lib.constants import CNOT_matrix, I_matrix, H_matrix, SWAP_matrix, CZ_matrix, CNOT_reversed_matrix, X_matrix, \
-    Z_matrix
-from quavl.lib.expressions.qbit import Qbits, Qbit
-from quavl.lib.models.circuit import Circuit
-from quavl.lib.solver import SpecificationType
-from quavl.lib.operations.gates import CNOT, H, CZ, SWAP, X, custom_gate, Z
-from quavl.lib.operations.measurements import measure
-from quavl.lib.utils.arithmetic import kron, matmul
+from symqv.lib.constants import CNOT_matrix, I_matrix, H_matrix, SWAP_matrix, CZ_matrix, CNOT_reversed_matrix, X_matrix, Z_matrix
+from symqv.lib.expressions.qbit import Qbits, Qbit
+from symqv.lib.models.circuit import Circuit
+from symqv.lib.solver import SpecificationType
+from symqv.lib.operations.gates import CNOT, H, CZ, SWAP, X, custom_gate, Z
+from symqv.lib.operations.measurements import measure
+from symqv.lib.utils.arithmetic import kron, matmul
 import numpy as np
 
 

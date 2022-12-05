@@ -1,11 +1,10 @@
-from quavl.lib.expressions.qbit import Qbits
-from quavl.lib.models.circuit import Circuit
-from quavl.lib.operations.gates import H, CZ, X, CCZ
+from symqv.lib.expressions.qbit import Qbits
+from symqv.lib.models.circuit import Circuit
+from symqv.lib.operations.gates import H, CZ, X, CCZ
+
+from symqv.lib.operations.measurements import measure
 
 # Grover's algorithm
-from quavl.lib.operations.measurements import measure
-
-
 def prove_grover():
     # Initialize circuit
     (q0, q1, q2) = Qbits(['q0', 'q1', 'q2'])

@@ -1,8 +1,8 @@
-from quavl.lib.constants import CNOT_matrix
-from quavl.lib.expressions.qbit import Qbits
-from quavl.lib.models.circuit import Circuit
-from quavl.lib.solver import SpecificationType
-from quavl.lib.operations.gates import CNOT
+from symqv.lib.constants import CNOT_matrix
+from symqv.lib.expressions.qbit import Qbits
+from symqv.lib.models.circuit import Circuit
+from symqv.lib.solver import SpecificationType
+from symqv.lib.operations.gates import CNOT
 
 
 # CNOT Circuit

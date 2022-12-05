@@ -1,8 +1,8 @@
-from quavl.lib.expressions.qbit import Qbits
-from quavl.lib.models.circuit import Circuit
-from quavl.lib.solver import SpecificationType
-from quavl.lib.operations.gates import CNOT, H, CZ, SWAP
-from quavl.lib.operations.measurements import measure
+from symqv.lib.expressions.qbit import Qbits
+from symqv.lib.models.circuit import Circuit
+from symqv.lib.solver import SpecificationType
+from symqv.lib.operations.gates import CNOT, H, CZ, SWAP
+from symqv.lib.operations.measurements import measure
 
 
 # Quantum teleportation

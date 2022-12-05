@@ -4,17 +4,16 @@ from typing import List
 import numpy as np
 from joblib import Parallel, delayed
 
-from quavl.lib.constants import CNOT_matrix, H_matrix, I_matrix, SWAP_matrix, CZ_matrix, X_matrix, Z_matrix, \
-    CNOT_reversed_matrix
-from quavl.lib.expressions.qbit import QbitVal, Qbit
-from quavl.lib.expressions.qbit import Qbits
-from quavl.lib.globals import precision_format
-from quavl.lib.models.circuit import Circuit
-from quavl.lib.models.measurement import Measurement
-from quavl.lib.operations.gates import H, X, CNOT, I, SWAP, CZ, Z
-from quavl.lib.operations.measurements import measure
-from quavl.lib.utils.arithmetic import kron, matmul
-from quavl.lib.solver import run_decision_procedure, SpecificationType
+from symqv.lib.constants import CNOT_matrix, H_matrix, I_matrix, SWAP_matrix, CZ_matrix, X_matrix, Z_matrix, CNOT_reversed_matrix
+from symqv.lib.expressions.qbit import QbitVal, Qbit
+from symqv.lib.expressions.qbit import Qbits
+from symqv.lib.globals import precision_format
+from symqv.lib.models.circuit import Circuit
+from symqv.lib.models.measurement import Measurement
+from symqv.lib.operations.gates import H, X, CNOT, I, SWAP, CZ, Z
+from symqv.lib.operations.measurements import measure
+from symqv.lib.utils.arithmetic import kron, matmul
+from symqv.lib.solver import run_decision_procedure, SpecificationType
 
 num_jobs = 1
 

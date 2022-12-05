@@ -2,11 +2,11 @@ from typing import List
 
 import numpy as np
 
-from quavl.lib.expressions.qbit import Qbits, QbitVal
-from quavl.lib.models.circuit import Circuit
-from quavl.lib.operations.gates import H, X, CNOT, I
-from quavl.lib.operations.measurements import measure
-from quavl.lib.utils.arithmetic import kron
+from symqv.lib.expressions.qbit import Qbits, QbitVal
+from symqv.lib.models.circuit import Circuit
+from symqv.lib.operations.gates import H, X, CNOT, I
+from symqv.lib.operations.measurements import measure
+from symqv.lib.utils.arithmetic import kron
 
 
 def prove_deutsch_jozsa(n: int = 3):

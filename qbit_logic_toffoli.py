@@ -1,15 +1,10 @@
-from typing import List
+from z3 import Implies
 
-from z3 import If, Or, Not, And, Implies
+from z3 import Implies
 
-from quavl.lib.expressions.complex import ComplexVal
-from quavl.lib.expressions.qbit import Qbits, QbitVal
-from quavl.lib.models.circuit import Circuit, Method
-from quavl.lib.operations.gates import H, R, SWAP, Rx, Rz, Y, V, CNOT, V_dag
-from quavl.lib.constants import cos, sin, pi
-import numpy as np
-
-from quavl.lib.solver import SpecificationType
+from symqv.lib.expressions.qbit import Qbits
+from symqv.lib.models.circuit import Circuit, Method
+from symqv.lib.operations.gates import V, CNOT, V_dag
 
 
 def prove_toffoli():
@@ -36,7 +31,7 @@ def prove_toffoli():
     circuit.solver.add(Implies(b.alpha.r == 1 and c.alpha.r == 1,
                                final_qbits[0].beta.r == a.alpha.r))
 
-    # Prove and repair
+    # Prove
     circuit.prove(method=Method.qbit_sequence_model,
                   dump_smt_encoding=True,
                   dump_solver_output=True,
@@ -45,7 +40,6 @@ def prove_toffoli():
 
 if __name__ == "__main__":
     prove_toffoli()
-
 
 # Positive
 # Naïve     No overapproximation  symQV

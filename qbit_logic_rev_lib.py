@@ -1,10 +1,10 @@
 from z3 import Not, Sum, Int
 
-from quavl.lib.constants import to_int, to_bool
-from quavl.lib.expressions.qbit import Qbit
-from quavl.lib.models.circuit import Method, Circuit
-from quavl.lib.operations.gates import V
-from quavl.lib.parsing.rev_lib import to_circuit, to_specification
+from symqv.lib.constants import to_int, to_bool
+from symqv.lib.expressions.qbit import Qbit
+from symqv.lib.models.circuit import Method, Circuit
+from symqv.lib.operations.gates import V
+from symqv.lib.parsing.rev_lib import to_circuit, to_specification
 
 
 def prove_add64():

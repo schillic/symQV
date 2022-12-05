@@ -4,14 +4,10 @@ from math import sqrt
 import numpy as np
 from z3 import And, Implies, Not
 
-from quavl.lib.expressions.qbit import Qbits
-from quavl.lib.models.circuit import Circuit, \
-    Method
-from quavl.lib.operations.gates import H, Z, X
-from quavl.lib.utils.arithmetic import \
-    complex_kron_n_ary
-
-n = [12]
+from symqv.lib.expressions.qbit import Qbits
+from symqv.lib.models.circuit import Circuit, Method
+from symqv.lib.operations.gates import H, Z, X
+from symqv.lib.utils.arithmetic import complex_kron_n_ary
 
 
 def prove_grover_diffuser_state_model(n: int, delta=0.0001):
@@ -31,10 +27,8 @@ def prove_grover_diffuser_state_model(n: int, delta=0.0001):
     # Symbolic execution
     final_qbits = circuit.get_final_qbits()
 
-    initial_state = complex_kron_n_ary(
-        [qbit.to_complex_list() for qbit in qbits])
-    final_state = complex_kron_n_ary(
-        [qbit.to_complex_list() for qbit in final_qbits])
+    initial_state = complex_kron_n_ary([qbit.to_complex_list() for qbit in qbits])
+    final_state = complex_kron_n_ary([qbit.to_complex_list() for qbit in final_qbits])
 
     # this specification checks if state vector entry i has negative phase,
     # then after diffusion, it should have a smaller value.
@@ -47,11 +41,10 @@ def prove_grover_diffuser_state_model(n: int, delta=0.0001):
 
     circuit.solver.add(Not(And(conjunction)))
 
-    circuit.prove(
-        method=Method.state_model,
-        dump_smt_encoding=False,
-        dump_solver_output=False,
-        overapproximation=False)
+    circuit.prove(method=Method.state_model,
+                  dump_smt_encoding=False,
+                  dump_solver_output=False,
+                  overapproximation=False)
 
 
 def prove_grover_diffuser(n: int, delta=0.0001):
@@ -95,12 +88,12 @@ def prove_grover_diffuser(n: int, delta=0.0001):
 
 
 if __name__ == "__main__":
-    prove_grover_diffuser_state_model(5)
+    n = 6
 
-    for i in n:
+    for i in range(n):
         times = []
 
-        for _ in range(10):
+        for _ in range(3):
             start = time.time()
             prove_grover_diffuser(i)
             times.append(time.time() - start)

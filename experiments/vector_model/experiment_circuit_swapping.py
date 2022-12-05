@@ -1,7 +1,7 @@
-from quavl.lib.expressions.qbit import Qbits
-from quavl.lib.models.circuit import Circuit
-from quavl.lib.operations.gates import CNOT, SWAP_matrix
-from quavl.lib.solver import SpecificationType
+from symqv.lib.expressions.qbit import Qbits
+from symqv.lib.models.circuit import Circuit
+from symqv.lib.operations.gates import CNOT, SWAP_matrix
+from symqv.lib.solver import SpecificationType
 
 
 # Circuit swapping of two qbits

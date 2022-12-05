@@ -4,15 +4,15 @@ from typing import List
 import numpy as np
 from joblib import Parallel, delayed
 
-from quavl.lib.expressions.qbit import QbitVal
-from quavl.lib.expressions.qbit import Qbits
-from quavl.lib.globals import precision_format
-from quavl.lib.models.circuit import Circuit
-from quavl.lib.models.measurement import Measurement
-from quavl.lib.operations.gates import H, X, CNOT, I
-from quavl.lib.operations import measure
-from quavl.lib.utils.arithmetic import kron
-from quavl.lib.solver import run_decision_procedure, SpecificationType
+from symqv.lib.expressions.qbit import QbitVal
+from symqv.lib.expressions.qbit import Qbits
+from symqv.lib.globals import precision_format
+from symqv.lib.models.circuit import Circuit
+from symqv.lib.models.measurement import Measurement
+from symqv.lib.operations.gates import H, X, CNOT, I
+from symqv.lib.operations import measure
+from symqv.lib.utils.arithmetic import kron
+from symqv.lib.solver import run_decision_procedure, SpecificationType
 
 num_jobs = 4
 

@@ -1,4 +1,0 @@
-// quantum teleportation specification, part of QuAVL
-QSPEC 1.0;
-q_in[2] = any;
-q_out[0] = q_in[2];

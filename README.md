@@ -1,6 +1,6 @@
 # QuAVL
 
-## Specification-based Verification and Repair of Quantum Programs
+## Specification-based Verification of Quantum Programs
 
 This Python project comes with the experiments
 
@@ -12,13 +12,6 @@ This Python project comes with the experiments
 - Parametric Quantum Fourier Transform*
 
 that show how QuAVL can prove correctness of quantum algorithms.
-
-Further QuAVL can synthesize repaired quantum programs in case of faults
-such as changed phase or omitted gates.
-
-The experiments marked with asterisk (*) also include repair of faulty quantum algorithms and verification of the 
-repaired instances.
-
 
 ## Installation
 

@@ -1,11 +1,11 @@
 import numpy as np
 
-from quavl.lib.constants import CCX_matrix, CNOT_matrix, I_matrix
-from quavl.lib.expressions.qbit import Qbits
-from quavl.lib.models.circuit import Circuit
-from quavl.lib.operations.gates import CNOT, CCX
-from quavl.lib.utils.arithmetic import kron
-from quavl.lib.solver import SpecificationType
+from symqv.lib.constants import CCX_matrix, CNOT_matrix, I_matrix
+from symqv.lib.expressions.qbit import Qbits
+from symqv.lib.models.circuit import Circuit
+from symqv.lib.operations.gates import CNOT, CCX
+from symqv.lib.utils.arithmetic import kron
+from symqv.lib.solver import SpecificationType
 
 
 def prove_half_adder():

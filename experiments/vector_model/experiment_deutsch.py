@@ -1,10 +1,10 @@
 from typing import Tuple
 
-from quavl.lib.expressions.qbit import Qbits, QbitVal
-from quavl.lib.models.circuit import Circuit
-from quavl.lib.solver import SpecificationType
-from quavl.lib.operations.gates import H, X, CNOT, I
-from quavl.lib.operations.measurements import measure
+from symqv.lib.expressions.qbit import Qbits, QbitVal
+from symqv.lib.models.circuit import Circuit
+from symqv.lib.solver import SpecificationType
+from symqv.lib.operations.gates import H, X, CNOT, I
+from symqv.lib.operations.measurements import measure
 
 
 # Deutsch's algorithm
