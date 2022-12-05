@@ -334,13 +334,7 @@ def R(qbit: QbitVal, k: int, use_phase_transform: bool = False) -> Gate:
     mapping = lambda q: QbitVal(alpha=q.alpha,
                                 beta=_to_complex(np.exp(2j * np.pi / 2 ** k)) * q.beta)
 
-    # mapping = lambda q: QbitVal(alpha=q.alpha,
-    #                             beta=ComplexVal(
-    #                                r=cos(2 * pi / 2 ** k) * q.beta.r - sin(2 * pi / 2 ** k) * q.beta.i,
-    #                                i=sin(2 * pi / 2 ** k) * q.beta.r + cos(2 * pi / 2 ** k) * q.beta.i))
-
     if use_phase_transform:
-        # TODO: shouldn't that be theta?
         mapping = lambda q: QbitVal(phi=q.phi + 2 * np.pi / 2 ** k,
                                     theta=q.theta)
 

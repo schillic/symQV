@@ -128,25 +128,17 @@ def swap_transform_non_adjacent_gate(gate: np.ndarray, gate_qbits: List[int], nu
     if gate_qbits[0] > gate_qbits[1]:
         raise Exception("Reverse is not supported.")
 
-    print('gate_qbits', gate_qbits)
     num_gate_qbits = gate_qbits[1] - gate_qbits[0] + 1
     swap_gates = []
 
     for i in range(num_gate_qbits - 1):
         swap_gates.append(identity_pad_gate(SWAP_matrix, [i, i + 1], num_gate_qbits))
 
-    print('gate', gate)
-    print('num_gate_qbits', num_gate_qbits)
-
     identity_padded_gate = identity_pad_gate(gate, [gate_qbits[1] - 1, gate_qbits[1]], num_gate_qbits)
-
-    print('identity_padded_gate', identity_padded_gate)
 
     gates = swap_gates \
             + [identity_padded_gate] \
             + swap_gates[::-1]
-
-    print('gates', gates)
 
     transformed_gate = matmul(gates)
 

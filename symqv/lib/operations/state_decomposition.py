@@ -166,7 +166,6 @@ def separate_first_qbit_from_state(state: np.array) -> Tuple[np.array, bool, Opt
 
     # other qbits in basis state:
     if np.count_nonzero(state) == 2:
-        # TODO: sometimes, the order is swapped
         return np.array([state[state != 0]]).T, True, None
 
     # no basis states involved

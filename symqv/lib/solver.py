@@ -19,7 +19,7 @@ from symqv.lib.utils.arithmetic import state_not_equals, matrix_vector_multiplic
 from symqv.lib.utils.helpers import build_qbit_constraints, to_complex_matrix, pi
 
 z3_path = '/usr/local/bin/z3'
-dreal_path = '/usr/local/Cellar/dreal/4.21.06.2/bin/dreal'
+dreal_path = '/opt/dreal/4.21.06.2/bin/dreal'
 
 
 class SpecificationType(Enum):
@@ -205,9 +205,6 @@ def write_smt_file(solver: Solver,
 
     smt_expr += '\n'
 
-    num_atomic_formulas = smt_expr.count('= ') + smt_expr.count('<= ') + smt_expr.count('< ')
-    print(f'- INFO: num_atomic_formulas: {num_atomic_formulas}')
-
     # 2.2 build output qbit constraints (if used)
     if output_qbits is not None:
         smt_expr += build_qbit_constraints(output_qbits, is_reduced_state_space, overapproximation)
@@ -222,21 +219,6 @@ def write_smt_file(solver: Solver,
 
     if dump_smt_encoding:
         print(smt_expr + solver_params)
-
-    # count variables
-    num_variables = len(qbits) * (4 + 3)
-    if output_qbits is not None:
-        num_variables += len(output_qbits) * (4 + 3)
-
-    if state_sequence is not None and isinstance(state_sequence, StateSequence):
-        for state in state_sequence.states:
-            if isinstance(state[0], ComplexVal):
-                num_variables += 2 * len(state)
-            else:
-                for measured_state in state:
-                    num_variables += 2 * len(measured_state)
-
-    print(f'- INFO: num_variables: {num_variables}')
 
     # To file
     temp_file = tempfile.NamedTemporaryFile(mode='w+b', suffix='.smt2', delete=False)
@@ -255,7 +237,6 @@ def run_decision_procedure(temp_file_name: str,
                            output_qbits,
                            delta: float = 0.0001,
                            dump_solver_output=False) -> Tuple[str, Union[collections.OrderedDict, None]]:
-    print('Starting proof...\n')
     start_solver = time.time()
 
     sat_result = ''
@@ -303,14 +284,7 @@ def run_decision_procedure(temp_file_name: str,
     if state_sequence is not None and isinstance(state_sequence, StateSequence):
         model_dict = _dict_group(model_dict, list(qbit_identifiers), output_qbits, state_sequence)
 
-    print('Done.')
-    end_solver = time.time()
-    time_solver = end_solver - start_solver
-    print(f'\nSolver time {precision_format.format(time_solver)} seconds.')
-
-    print(f'Result: {sat_result}\n')
-
-    if False: # not dump_solver_output:
+    if dump_solver_output:
         if len(model_dict) > 0:
             print('Model:')
 
@@ -326,17 +300,6 @@ def run_decision_procedure(temp_file_name: str,
                     print(('{}: ' + precision_format + ' ±{:.16f}').format(key, mean, error))
                 else:
                     print('{}: {}'.format(key, repr(value)))
-
-    if sat_result in ['unsat', 'unknown']:
-        return sat_result, None
-    else:
-        # 5 Plausability check of SAT result
-        if state_sequence is not None and isinstance(state_sequence, StateSequence):
-            (is_plausible, unplausible_final_state, message) = _is_sat_result_plausible(model_dict,
-                                                                                        specification,
-                                                                                        len(state_sequence.states))
-
-            print(f'\nSAT result is plausible: {is_plausible} ({message}).')
 
     return sat_result, model_dict
 

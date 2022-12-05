@@ -629,7 +629,6 @@ class Circuit:
 
         # 1 Build initial state definition
         # (Symbolic kronecker product from input qbits)
-        print('self.qbits', [qbit.to_complex_list() for qbit in self.qbits])
         initial_state_definition = complex_kron_n_ary([qbit.to_complex_list() for qbit in self.qbits])
 
         state_sequence = StateSequence(self.qbits)

@@ -1,7 +1,5 @@
 from z3 import Implies
 
-from z3 import Implies
-
 from symqv.lib.expressions.qbit import Qbits
 from symqv.lib.models.circuit import Circuit, Method
 from symqv.lib.operations.gates import V, CNOT, V_dag
@@ -33,18 +31,8 @@ def prove_toffoli():
 
     # Prove
     circuit.prove(method=Method.qbit_sequence_model,
-                  dump_smt_encoding=True,
-                  dump_solver_output=True,
                   overapproximation=True)
 
 
 if __name__ == "__main__":
     prove_toffoli()
-
-# Positive
-# Naïve     No overapproximation  symQV
-# 5.9602    2.2387                0.7278
-
-# Negative
-# Naïve     No overapproximation  symQV
-# 4.6495    1.2916                0.4558

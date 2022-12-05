@@ -1,27 +1,26 @@
-# QuAVL
+# symQV
 
-## Specification-based Verification of Quantum Programs
+## Symbolic Quantum Program Verification
 
 This Python project comes with the experiments
 
-- Toffoli Gate*
+- Toffoli Gate
 - Quantum implementations of classical algorithms (RevLib)
 - Quantum Teleportation Protocol
-- Deutsch-Jozsa Algorithm*
-- Quantum Fourier Transform*
-- Parametric Quantum Fourier Transform*
+- Quantum Fourier Transform
+- Grover Diffusion Operator
 
-that show how QuAVL can prove correctness of quantum algorithms.
+that show how symQV can prove correctness of quantum algorithms.
 
 ## Installation
 
-There are three requirements for Quantify to run. The Python packages are:
+There are three requirements for symQV to run. The Python packages are:
 
 - z3-solver (for SMT sort declaration and syntax generation)
 - pyparsing (needed for output parsing)
 - numpy (for arithmetic)
 
-Also, the system Quantify runs on requires [dReal](http://dreal.github.io) to be installed and added to the path
+Also, the system symQV runs on requires [dReal](http://dreal.github.io) to be installed and added to the path
 in order for the solver to work.
 
 Install Python packages:

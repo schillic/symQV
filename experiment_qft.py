@@ -101,43 +101,12 @@ def prove_qft(n: int):
 
     # Prove
     circuit.prove(method=Method.qbit_sequence_model,
-                  dump_smt_encoding=False,
                   overapproximation=True)
 
 
 if __name__ == "__main__":
-    for i in [5]:
+    for i in [3]:
         start = time.time()
         prove_qft(i)
         print(f'Runtime for {i}:',
               time.time() - start)
-
-# (w/ spec)
-#
-# n      time [s]   n_vars  n_f
-# (3,     5.7905)   210     538
-# (4,    37.3043)   392     1049
-# (5,   157.2724)   665     1821
-# (6,   589.9662)   1060    2911
-# (7,  1965.5455)   1568    4376
-# (8,  5427.2054)   2240    6273
-# (9, 14743.8584)   3087    8659
-# (10,39463.4381)   4130    11591
-# (11,79776.4612)   5390    15126
-
-# (spec delta)   n_f
-# (3, 47.3940)   538
-
-
-# Over-approx w/spec
-
-# n     time            n_vars
-# 10    5721.5549       4130
-# 12    26650.6383      6888
-# 18                    22050
-
-
-# Positive
-
-# n     time            n_vars
-# 3     99.6252         336

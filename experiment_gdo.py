@@ -80,17 +80,14 @@ def prove_grover_diffuser(n: int, delta=0.0001):
 
     circuit.solver.add(Not(And(conjunction)))
 
-    circuit.prove(
-        method=Method.qbit_sequence_model,
-        dump_smt_encoding=False,
-        dump_solver_output=False,
-        overapproximation=True)
+    circuit.prove(method=Method.qbit_sequence_model,
+                  overapproximation=True)
 
 
 if __name__ == "__main__":
-    n = 6
+    n = 5
 
-    for i in range(n):
+    for i in range(3, n, 1):
         times = []
 
         for _ in range(3):
