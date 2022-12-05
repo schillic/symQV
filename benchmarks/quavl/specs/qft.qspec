@@ -1,0 +1,7 @@
+// quantum fourier transform specification, part of QuAVL
+QSPEC 1.0;
+q_in = bitvector;
+q_out[3] = 1/sqrt(2) * array([[1], [exp(2 * pi * 1j * (1/(2 ** 4)) * q_in[0:4])]]);
+q_out[2] = 1/sqrt(2) * array([[1], [exp(2 * pi * 1j * (1/(2 ** 3)) * q_in[1:4])]]);
+q_out[1] = 1/sqrt(2) * array([[1], [exp(2 * pi * 1j * (1/(2 ** 2)) * q_in[2:4])]]);
+q_out[0] = 1/sqrt(2) * array([[1], [exp(2 * pi * 1j * (1/(2 ** 1)) * q_in[3:4])]]);

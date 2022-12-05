@@ -1,0 +1,37 @@
+The circuits in this directory are either original or derived works
+from the RevLib website.
+(https://http://revlib.org/).
+
+Revlib citation:
+
+   @INPROCEEDINGS{WGT+:2008,
+      AUTHOR    = {R. Wille and
+                   D. Gro{\ss}e and
+                   L. Teuber and
+                   G. W. Dueck and
+                   R. Drechsler},
+      TITLE     = {{RevLib}: An Online Resource for
+                   Reversible Functions and Reversible Circuits},
+      BOOKTITLE = {{Int'l Symp. on Multi-Valued Logic}},
+      PAGES     = {220--225},
+      YEAR      = {2008},
+      note      = {{RevLib} is available at http://www.revlib.org}
+    }
+
+
+
+RevLib copyright notice:
+
+    Copyright – Group of Computer Architecture
+    All rights reserved, Group of Computer Architecture and the University Bremen, D-28359 Bremen.
+
+    The online documents and websites including their parts are protected by copyright.
+    They may only be copied or printed for private, scientific and non-commercial information purposes provided that
+    reference is made to copyright.
+    The Group of Computer Architecture reserves the right to withdraw this permission at any time.
+    It is prohibited to reproduce, archive, save on another server, include in news groups, use in online services or
+    save to CD-ROM without the prior written consent of the Group of Computer Architecture.
+    They may, however, be copied into a cache or a proxy server in order to optimise the access time.
+
+    We expressly permit and welcome our documents and web pages to be cited, as well as links to be included on our
+    website.
