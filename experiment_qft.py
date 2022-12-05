@@ -106,7 +106,7 @@ def prove_qft(n: int):
 
 
 if __name__ == "__main__":
-    for i in [3, 5, 10, 12]:
+    for i in [3, 5]:
         times = []
 
         for _ in range(5):

@@ -85,7 +85,7 @@ def prove_grover_diffuser(n: int, delta=0.0001):
 
 
 if __name__ == "__main__":
-    for i in [5, 10, 12, 15, 18, 20, 22, 24]:
+    for i in [5, 10]:
         times = []
 
         for _ in range(5):

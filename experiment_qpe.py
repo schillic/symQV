@@ -74,7 +74,7 @@ def prove_qpe(n: int):
 
 
 if __name__ == "__main__":
-    for i in [3, 5]:
+    for i in [3]:
         times = []
 
         for _ in range(5):
