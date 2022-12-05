@@ -5,7 +5,7 @@ from tempfile import NamedTemporaryFile
 from typing import List, Tuple, Union, Set
 
 import numpy as np
-from z3 import Tactic, Or, And, If, Real, Bool, Int
+from z3 import Tactic, Or, And, If, Real, Bool
 
 from symqv.lib.constants import I_matrix, CNOT_matrix, SWAP_matrix
 from symqv.lib.expressions.qbit import QbitVal, Qbits

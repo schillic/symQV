@@ -1,5 +1,6 @@
 from typing import List, Union
 
+import numpy as np
 from z3 import Sqrt, Real
 
 from symqv.lib.constants import X_matrix, H_matrix, CNOT_matrix, CZ_matrix, SWAP_matrix, CNOT_reversed_matrix, \
@@ -10,8 +11,6 @@ from symqv.lib.expressions.complex import _to_complex
 from symqv.lib.expressions.qbit import QbitVal
 from symqv.lib.expressions.rqbit import RQbitVal
 from symqv.lib.models.gate import Gate
-
-import numpy as np
 
 
 def I(qbit: QbitVal) -> Gate:

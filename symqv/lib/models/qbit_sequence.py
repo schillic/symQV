@@ -40,6 +40,5 @@ class QbitSequence:
         self.num_states += 1
         return new_state
 
-
     def __str__(self):
         return f'StateSequence(num_states={self.num_states}, num_qbits={self.num_qbits})'

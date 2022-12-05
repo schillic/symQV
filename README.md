@@ -28,7 +28,7 @@ Install Python packages:
     pip install z3-solver
     pip install pyparsing
     pip install numpy
-    
+
 Install dReal on Mac:
 
     /usr/bin/curl -fsSL https://raw.githubusercontent.com/dreal/dreal4/master/setup/mac/install.sh | bash
@@ -49,7 +49,6 @@ Alternatively, make the shell script `install.sh` executable and run it:
     sudo chmod +x install.sh
     ./install.sh
 
-
 ## Examples
 
 The code to generate all figures and analysis is available with the repeatability
@@ -64,7 +63,6 @@ This is a simple helper script which runs the following commands:
     python experiment_deutsch_jozsa.py
     python experiment_qft.py
     python experiment_qft_parametric.py
-
 
 __IMPORTANT__: You may need to add execution privileges to the script in order to run it on your machine.
 Also, please note that the examples are provided in order to show the functionality of the tool,

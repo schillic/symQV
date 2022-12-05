@@ -1,9 +1,10 @@
+import numpy as np
+
 from symqv.lib.constants import zero
 from symqv.lib.operations.state_decomposition import from_angles
 from symqv.lib.parsing.open_qasm import read_from_qasm
 from symqv.lib.utils.arithmetic import kron
 
-import numpy as np
 
 def test___get_final_states():
     qc_path = '../../../benchmarks/symqv/teleportv3.qasm'
@@ -32,6 +33,7 @@ def test___get_final_states():
 
     final_state = qc._get_final_states(kron([psi, zero, zero]))
     print(final_state)
+
 
 if __name__ == '__main__':
     test___get_final_states()

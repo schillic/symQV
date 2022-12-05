@@ -9,7 +9,6 @@ from symqv.lib.operations.state_decomposition import swap_kth_qbit_to_front, fro
 from symqv.lib.utils.arithmetic import kron
 
 
-
 def test_euclidean_distance():
     q1 = from_angles(0.3, 0.7)
     q2 = from_angles(0.3, 0.7)

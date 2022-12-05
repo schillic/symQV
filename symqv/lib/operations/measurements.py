@@ -1,9 +1,10 @@
 import math
 from typing import List, Union
 
+import numpy as np
+
 from symqv.lib.expressions.qbit import QbitVal
 from symqv.lib.models.measurement import Measurement
-import numpy as np
 
 
 def measure(qbits: Union[QbitVal, List[QbitVal]]) -> Measurement:

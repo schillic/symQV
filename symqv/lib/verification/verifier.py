@@ -1,5 +1,5 @@
-from numpy import sqrt, exp, pi, array
 from typing import Tuple, List, Callable
+
 import numpy as np
 from scipy import optimize
 
@@ -88,6 +88,7 @@ def build_objective_function(qc: HybridCircuit, specification: Specification) ->
     :param specification: specification.
     :return: Objective function.
     """
+
     def objective_function(x: List[float]):
         """
         Objective function for verifying a quantum program with a symbolic input.

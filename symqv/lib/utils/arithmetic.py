@@ -1,7 +1,7 @@
 from typing import List, Tuple, Union
 
 import numpy as np
-from z3 import And, Not, Bool, RealVal, IntVal
+from z3 import And, Not
 
 from symqv.lib.constants import to_int
 from symqv.lib.expressions.complex import ComplexVal
@@ -191,6 +191,7 @@ def complex_matrix_kron(matrix_a: np.ndarray, matrix_b: np.ndarray):
     :param matrix_b: second matrix.
     :return: Kronecker product.
     """
+
     def cast(num):
         if type(num) == np.int64:
             return ComplexVal(int(num))

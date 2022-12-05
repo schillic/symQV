@@ -3,13 +3,14 @@ from math import sqrt
 from typing import List
 
 import numpy as np
+from z3 import If
+
 from symqv.lib.constants import cos, sin, pi
 from symqv.lib.expressions.complex import ComplexVal
 from symqv.lib.expressions.qbit import Qbits, QbitVal
 from symqv.lib.models.circuit import Circuit, Method
 from symqv.lib.operations.gates import H, R, SWAP
 from symqv.lib.solver import SpecificationType
-from z3 import If
 
 
 def create_qft_circuit(n: int):

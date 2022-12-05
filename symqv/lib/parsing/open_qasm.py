@@ -1,7 +1,7 @@
 from typing import List
 
 import numpy as np
-from pyparsing import Word, Optional, Combine, alphas, alphanums, nums, delimitedList, SkipTo
+from pyparsing import Word, Optional, Combine, alphas, alphanums, nums, delimitedList
 
 from symqv.lib.constants import H_matrix, X_matrix, Y_matrix, Z_matrix, U3_matrix, CZ_matrix, \
     CNOT_matrix, CU1_matrix, CRk_matrix

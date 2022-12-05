@@ -1,5 +1,5 @@
-from typing import Union, Callable, List
 from typing import Optional as Opt
+from typing import Union, List
 
 from pyparsing import Word, alphas, nums, Optional, SkipTo, alphanums
 

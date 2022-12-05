@@ -11,9 +11,9 @@ class Gate:
                  arguments: List[QbitVal],
                  matrix: Optional[ndarray],
                  matrix_swapped: ndarray = None,
-                 mapping = None,
-                 r_mapping = None,
-                 parameter = None,
+                 mapping=None,
+                 r_mapping=None,
+                 parameter=None,
                  oracle_value: int = None):
         self.name = name
         self.arguments = arguments

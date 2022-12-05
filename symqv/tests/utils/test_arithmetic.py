@@ -1,7 +1,7 @@
+import numpy as np
+
 from symqv.lib.constants import zero, one
 from symqv.lib.utils.arithmetic import kron
-
-import numpy as np
 
 
 def test_kron():

@@ -15,7 +15,8 @@ from symqv.lib.expressions.rqbit import RQbitVal
 from symqv.lib.globals import precision_format
 from symqv.lib.models.qbit_sequence import QbitSequence
 from symqv.lib.models.state_sequence import StateSequence
-from symqv.lib.utils.arithmetic import state_not_equals, matrix_vector_multiplication, state_equals, qbit_kron_n_ary, qbit_isclose_to_value
+from symqv.lib.utils.arithmetic import state_not_equals, matrix_vector_multiplication, state_equals, qbit_kron_n_ary, \
+    qbit_isclose_to_value
 from symqv.lib.utils.helpers import build_qbit_constraints, to_complex_matrix, pi
 
 z3_path = '/usr/local/bin/z3'
@@ -345,8 +346,8 @@ def _dict_group(dict: Dict,
         alpha_imag = np.mean(dict[f'{qbit_key}.alpha.i'])
         beta_real = np.mean(dict[f'{qbit_key}.beta.r'])
         beta_imag = np.mean(dict[f'{qbit_key}.beta.i'])
-        phi = None # np.mean(dict[f'{qbit_key}.phi'])
-        theta = None # np.mean(dict[f'{qbit_key}.theta'])
+        phi = None  # np.mean(dict[f'{qbit_key}.phi'])
+        theta = None  # np.mean(dict[f'{qbit_key}.theta'])
 
         grouped_dict[qbit_key] = QbitVal(ComplexVal(alpha_real, alpha_imag),
                                          ComplexVal(beta_real, beta_imag),

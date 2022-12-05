@@ -95,6 +95,7 @@ class RQbitVal(QbitVal):
         """
         return [self.z0, self.z1]
 
+
 def RQbit(identifier: str) -> RQbitVal:
     """
     Generate a named rqbit.

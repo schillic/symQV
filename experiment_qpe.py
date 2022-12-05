@@ -1,7 +1,7 @@
 import time
 
 import numpy as np
-from z3 import Real, Not, Int, Implies
+from z3 import Real, Not, Implies
 
 from symqv.lib.expressions.qbit import Qbits
 from symqv.lib.models.circuit import Circuit, Method

@@ -1,6 +1,7 @@
 from typing import List
 
 from z3 import is_rational_value, simplify, Real, Not, RealVal, And, ArithRef
+
 from symqv.lib.globals import precision_format
 
 
