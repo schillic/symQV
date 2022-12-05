@@ -1,6 +1,4 @@
-matplotlib
+pyparsing==3.0.9
+z3-solver==4.11.2.0
+numpy==1.23.5
 scipy
-pyparsing==2.4.7
-z3-solver==4.8.10.0
-numpy==1.20.2
-joblib

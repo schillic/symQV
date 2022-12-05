@@ -5,9 +5,10 @@
 This Python project comes with the experiments
 
 - Toffoli Gate
-- Quantum implementations of classical algorithms (RevLib)
 - Quantum Teleportation Protocol
+- 8-Bit Adder
 - Quantum Fourier Transform
+- Quantum Phase Estimation
 - Grover Diffusion Operator
 
 that show how symQV can prove correctness of quantum algorithms.
@@ -19,6 +20,7 @@ There are three requirements for symQV to run. The Python packages are:
 - z3-solver (for SMT sort declaration and syntax generation)
 - pyparsing (needed for output parsing)
 - numpy (for arithmetic)
+- scipy (for optimization)
 
 Also, the system symQV runs on requires [dReal](http://dreal.github.io) to be installed and added to the path
 in order for the solver to work.
@@ -28,6 +30,7 @@ Install Python packages:
     pip install z3-solver
     pip install pyparsing
     pip install numpy
+    pip install scipy
 
 Install dReal on Mac:
 
@@ -58,11 +61,11 @@ Examples to reproduce the data are included in the top-level directory, includin
 This is a simple helper script which runs the following commands:
 
     python experiment_toffoli.py
-    python experiment_rev_lib.py
     python experiment_teleportation.py
-    python experiment_deutsch_jozsa.py
+    python experiment_add8.py
     python experiment_qft.py
-    python experiment_qft_parametric.py
+    python experiment_qpe.py
+    python experiment_gdo.py
 
 __IMPORTANT__: You may need to add execution privileges to the script in order to run it on your machine.
 Also, please note that the examples are provided in order to show the functionality of the tool,
