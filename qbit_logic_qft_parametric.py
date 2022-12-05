@@ -3,18 +3,13 @@ from math import sqrt
 from typing import List
 
 import numpy as np
-from z3 import If
-
 from quavl.lib.constants import cos, sin, pi
-from quavl.lib.expressions.complex import \
-    ComplexVal
-from quavl.lib.expressions.qbit import Qbits, \
-    QbitVal
-from quavl.lib.models.circuit import Circuit, \
-    Method
-from quavl.lib.operations.gates import H, R, \
-    SWAP
+from quavl.lib.expressions.complex import ComplexVal
+from quavl.lib.expressions.qbit import Qbits, QbitVal
+from quavl.lib.models.circuit import Circuit, Method
+from quavl.lib.operations.gates import H, R, SWAP
 from quavl.lib.solver import SpecificationType
+from z3 import If
 
 
 def create_qft_circuit(n: int):

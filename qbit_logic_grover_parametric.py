@@ -63,7 +63,6 @@ def prove_grover_diffuser(n: int, delta=0.0001):
                           [H(qbit) for qbit in qbits],
                           [X(qbit) for qbit in qbits],
                           Z(qbits[0]).controlled_by(qbits[1:]),
-                          # TODO: only 1 and 0 control qbits
                           [X(qbit) for qbit in qbits],
                           [H(qbit) for qbit in qbits],
                       ],
