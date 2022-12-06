@@ -1,5 +1,7 @@
 # symQV
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7400321.svg)](https://doi.org/10.5281/zenodo.7400321)
+
 ## Symbolic Quantum Program Verification
 
 This Python project comes with the experiments
