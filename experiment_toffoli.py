@@ -1,7 +1,7 @@
 import time
 
 import numpy as np
-from z3 import Implies
+from z3 import Implies, And, If, Not
 
 from symqv.lib.expressions.qbit import Qbits
 from symqv.lib.models.circuit import Circuit, Method
@@ -37,12 +37,53 @@ def prove_toffoli():
                   overapproximation=True)
 
 
+# reordered gates, asserted solver result
+def prove_toffoli_new():
+    # Initialize circuit
+    a, b, c = Qbits(['a', 'b', 'c'])
+    n = 3
+
+    circuit = Circuit([a, b, c],
+                      [
+                          V(c).controlled_by(a),
+                          V(c).controlled_by(b),
+                          CNOT(a, b),
+                          V_dag(c).controlled_by(b),
+                          CNOT(a, b)
+                      ])
+
+    initial_values = [{(1, 0), (0, 1)} for _ in range(n)]
+
+    circuit.initialize(initial_values)
+
+    # Build specification
+    final_qbits = circuit.get_final_qbits()
+
+    # both control qubits are 1 iff the third qubit gets negated
+    circuit.solver.add(
+        Not(  # negate specification
+            If(
+                And(a.beta.r == 1, b.beta.r == 1),
+                And(c.alpha.r == final_qbits[2].beta.r, c.beta.r == final_qbits[2].alpha.r),
+                And(c.alpha.r == final_qbits[2].alpha.r, c.beta.r == final_qbits[2].beta.r)
+            )
+        )
+    )
+
+    # Prove
+    res = circuit.prove(method=Method.qbit_sequence_model,
+                        # file_generation_only=True, dump_smt_encoding=True,
+                        overapproximation=True)
+    # print(res[0])
+    assert res[0] == 'unsat'
+
+
 if __name__ == "__main__":
     times = []
 
     for _ in range(5):
         start = time.time()
-        prove_toffoli()
+        prove_toffoli_new()
         times.append(time.time() - start)
 
     print(f'Runtime:', np.mean(times))
