@@ -588,25 +588,40 @@ class Circuit:
             # add intermediate qbits
             qbit_identifiers.extend([qbit.get_identifier() for qbit in state])
 
-        (sat_result, model) = solve(self.solver,
-                                    qbit_identifiers,
-                                    qbit_sequence,
-                                    self.specification,
-                                    self.specification_type,
-                                    self.is_equality_specification,
-                                    output_qbits=[q.get_identifier() for q in self.final_qbits]
-                                    if self.final_qbits is not None else None,
-                                    delta=self.delta,
-                                    synthesize_repair=self.final_qbits is not None and synthesize_repair is True,
-                                    overapproximation=overapproximation,
-                                    dump_smt_encoding=dump_smt_encoding,
-                                    dump_solver_output=dump_solver_output)
+        if file_generation_only:
+            (temp_file, qbit_identifiers_out) = write_smt_file(self.solver,
+                                                               qbit_identifiers,
+                                                               qbit_sequence,
+                                                               self.specification,
+                                                               self.specification_type,
+                                                               self.is_equality_specification,
+                                                               output_qbits=[q.get_identifier() for q in
+                                                                             self.final_qbits]
+                                                               if self.final_qbits is not None else None,
+                                                               overapproximation=overapproximation,
+                                                               dump_smt_encoding=dump_smt_encoding)
 
-        end_full = time.time()
-        time_full = end_full - start_full
+            return temp_file, qbit_identifiers_out
+        else:
+            (sat_result, model) = solve(self.solver,
+                                        qbit_identifiers,
+                                        qbit_sequence,
+                                        self.specification,
+                                        self.specification_type,
+                                        self.is_equality_specification,
+                                        output_qbits=[q.get_identifier() for q in self.final_qbits]
+                                        if self.final_qbits is not None else None,
+                                        delta=self.delta,
+                                        synthesize_repair=self.final_qbits is not None and synthesize_repair is True,
+                                        overapproximation=overapproximation,
+                                        dump_smt_encoding=dump_smt_encoding,
+                                        dump_solver_output=dump_solver_output)
 
-        print(f'Elapsed time {precision_format.format(time_full)} seconds.')
-        return sat_result, model, time_full
+            end_full = time.time()
+            time_full = end_full - start_full
+
+            print(f'Elapsed time {precision_format.format(time_full)} seconds.')
+            return sat_result, model, time_full
 
     def _prove_state_model(self,
                            dump_smt_encoding: bool = False,
