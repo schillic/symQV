@@ -36,8 +36,10 @@ def prove_quantum_teleportation():
 
     circuit.set_specification((psi, b1_final), SpecificationType.equality_pair)
 
-    circuit.prove(method=Method.state_model,
-                  overapproximation=False)
+    res = circuit.prove(method=Method.state_model,
+                        overapproximation=False)
+    # print(res[0])
+    assert res[0] == 'unsat'
 
 
 if __name__ == "__main__":
